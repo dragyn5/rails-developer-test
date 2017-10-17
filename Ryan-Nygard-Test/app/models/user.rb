@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :articles
   
-  petergate(roles: [:vanilla, :admin, :editor], multiple: false)                                      ##
+  petergate(roles: [:admin, :editor], multiple: false)                                      ##
   
  
 
