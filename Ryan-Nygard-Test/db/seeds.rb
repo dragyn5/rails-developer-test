@@ -5,3 +5,40 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+3.times do |x|
+  user = User.new
+  user.email = "test#{x}@test.com"
+  user.encrypted_password = '111111'
+  user.password = '111111'
+  case x
+    when 0
+      @role = "user"
+    when 1
+      @role = "editor"
+    when 2
+      @role = "admin"
+  end
+  user.roles =  @role
+  user.save!
+end
+
+puts "created 3 users with test1@test.com and password being 111111"
+
+6.times do |x|
+  @articles = Article.create(title: "Star Wars #{x}", content: 'Star wars is an awesome movie with amazing characters', category: 'Movies', user_id: 1)
+end
+
+puts "created 6 articles for user 1"
+
+6.times do |x|
+  @articles = Article.create(title: "Katy Perry #{x}", content: 'Your a shooting star', category: 'Music', user_id: 2)
+end
+
+puts "created 6 articles for user 2"
+
+6.times do |x|
+  @articles = Article.create(title: "Mustang #{x}", content: 'Beast of a car', category: "Music", user_id: 3)
+end
+
+puts "created 6 articles for user 2"
