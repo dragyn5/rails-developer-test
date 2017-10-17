@@ -14,8 +14,11 @@
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
-      <td><%= article.category %></td>
-      <td><%= article.content %></td>
+      <% if article.category_id %>
+        <td><%= Category.find(article.category_id).title %></td>
+      <% else %>
+        <td></td>
+      <% end %>
       <td><%= link_to 'Show', article_path(article) %></td>
       <% if current_user %>
         <% if current_user.id == article.user_id || current_user.roles == "admin" %>
