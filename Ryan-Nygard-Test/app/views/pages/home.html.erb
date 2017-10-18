@@ -1,17 +1,61 @@
-<h1>Pages#home</h1>
+<h1>Home</h1>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Category</th>
+      <th>View</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |x| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= x.title %></td>
+      <td><%= x.category.title %></td>
+      <td><%= link_to 'Show', article_path(x) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
+<div class="card">
+  <div class="card-block">
+    <p>General Information<br>
+      Thank you for reviewing Ryan Nygard's Developer Test<br>
+      Guests cannot view article show pages or create/destroy/edit<br>
+      Vanilla users can view articles but cannot create/destroy/edit<br>
+      Editors can create articles but can only edit and destroy their own<br>
+      Admins can create articles and categories and can edit/destroy all articles<br>
+      There is a seed file, using rails db:setup will generate them <br>
+      I created a few tests which can be run with rails/rake test
+    </p>
+  </div>
+</div>
 
-
-<% @articles.each do |x| %>
-  
-  <%= x.title %>
-  <%= x.category.title %>
-<% end %>
-
-
-
-
-<h2><%= link_to 'Articles', articles_path %></h2>
-<h2><%= link_to 'Sign_Up', new_user_registration_path %></h2>
-<h2><%= link_to 'Sign_Out', destroy_user_session_path, method: :delete %></h2>
+<div class="card">
+  <div class="card-block">
+    <p>Login Information<br>
+    email - test1@test.com<br>
+    password - 111111<br>
+    role - user</p>
+  </div>
+</div>
+<div class="card">
+  <div class="card-block">
+    <p>Login Information<br>
+    email - test2@test.com<br>
+    password - 111111<br>
+    role - editor</p>
+  </div>
+</div>
+<div class="card">
+  <div class="card-block">
+    <p>Login Information<br>
+    email - test3@test.com<br>
+    password - 111111<br>
+    role - admin</p>
+  </div>
+</div>

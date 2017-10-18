@@ -9,7 +9,7 @@
 
 3.times do |x|
   user = User.new
-  user.email = "test#{x}@test.com"
+  user.email = "test#{x + 1}@test.com"
   user.encrypted_password = '111111'
   user.password = '111111'
   case x
@@ -30,8 +30,10 @@ puts "created 3 users with test1@test.com and password being 111111"
 @category2 = Category.create(title: "Music") 
 @category3 = Category.create(title: "Cars") 
 
+puts "created 3 Categories"
+
 6.times do |x|
-  @articles = Article.create(title: "Star Wars #{x}", content: 'Star wars is an awesome movie with amazing characters', category_id: @category1.id, user_id: 1)
+  @articles = Article.create(title: "Star Wars #{x}", content: 'Star wars is an awesome movie with amazing characters', category_id: @category1.id, user_id: 2)
 end
 
 puts "created 6 articles for user 1"
