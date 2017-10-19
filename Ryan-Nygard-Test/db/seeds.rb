@@ -36,16 +36,14 @@ puts "created 3 Categories"
   @articles = Article.create(title: "Star Wars #{x}", content: 'Star wars is an awesome movie with amazing characters', category_id: @category1.id, user_id: 2)
 end
 
-puts "created 6 articles for user 1"
-
 6.times do |x|
   @articles = Article.create(title: "Katy Perry #{x}", content: 'Your a shooting star', category_id: @category2.id, user_id: 2)
 end
 
-puts "created 6 articles for user 2"
+puts "created 12 articles for user 2 (editor)"
 
 6.times do |x|
   @articles = Article.create(title: "Mustang #{x}", content: 'Beast of a car', category_id: @category3.id, user_id: 3)
 end
 
-puts "created 6 articles for user 2"
+puts "created 6 articles for user 3 (admin)"

@@ -1,6 +1,8 @@
 
 <div>
-  <div><h2>You are currently logged in as an <%= current_user.roles[0] %></h2></div>
+  <% if current_user %>
+    <div><h2>You are currently logged in as an <%= current_user.roles[0] %></h2></div>
+  <% end %>
   <div><%= link_to "Home", root_path %></div>
   <div><%= link_to 'Articles', articles_path %></div>
   <% if current_user %>

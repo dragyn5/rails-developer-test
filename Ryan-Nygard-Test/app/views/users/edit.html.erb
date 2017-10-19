@@ -1,0 +1,44 @@
+
+<h1>Edit article</h1>
+ 
+<%= form_with(model: @user) do |form| %>
+ 
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this user from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>  
+
+  <p>
+    <%= form.label :password %><br>
+    <%= form.text_area :password %>
+  </p>
+ 
+  <p>
+    <%= form.label :password_confirmation %><br>
+    <%= form.text_area :password_confirmation %>
+  </p>
+  <p>
+    <%= form.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= form.password_field :current_password, autocomplete: "off" %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', users_path %>
