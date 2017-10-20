@@ -3,22 +3,25 @@
   <p class="notice"><%= @notice %></p>
   <p class="alert"><%= @alert %></p>
 
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th><%= link_to 'New Category', new_category_path %></th>
-  </tr>
- 
-  <% @categories.each do |category| %>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <td><%= category.title %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category_path(category),
-          method: :delete,
-          data: { confirm: 'Are you sure?' } %></td>
-
-
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Destroy</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <th scope="col">1</th>
+        <td scope="col"><%= category.title %></th>
+        <td><%= link_to 'Edit', edit_category_path(category), class: 'col' %></th>
+        <td><%= link_to 'Destroy', category_path(category),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     if logged_in?(:admin)
     else
-      redirect_to controller: 'categorys', action: 'index', notice: 'must be owner of category to edit'
+      redirect_to controller: 'categories', action: 'index', notice: 'must be Admin to edit '
     end
   end
 
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     if logged_in?(:admin)
     else
-      redirect_to controller: 'categories', action: 'index', notice: 'must be owner of category to edit'
+      redirect_to controller: 'categories', action: 'index', notice: 'must be Admin to edit'
     end
     if @category.update(category_params)
       redirect_to categories_path
@@ -51,7 +51,7 @@ class CategoriesController < ApplicationController
       @category.destroy
       redirect_to categories_path
     else
-      redirect_to controller: 'categories', action: 'index', notice: 'must be owner of category to delete'
+      redirect_to controller: 'categories', action: 'index', notice: 'must be Admin to delete'
     end
    
   end
