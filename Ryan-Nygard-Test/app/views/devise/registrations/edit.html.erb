@@ -8,6 +8,13 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <br>
+
+  <div class="field">
+    <p>Choose role</p>
+    <%= select(:user, :roles, [['User', "user"], ['Editor', "editor"], ['Admin', "admin"]]) %> <br>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

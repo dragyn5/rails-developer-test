@@ -21,6 +21,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= select(:user, :roles, [['User', "user"], ['Editor', "editor"], ['Admin', "admin"]]) %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
